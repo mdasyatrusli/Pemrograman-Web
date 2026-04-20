@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ddd;
+  margin: 0;
+  padding: 20px;
+}
+
+/* HEADER */
+header {
+  background: #ccc;
+  padding: 10px;
+}
+
+nav a {
+  margin-right: 10px;
+  color: rgb(68, 94, 240);
+  text-decoration: none;
+}
+
+/* PROFILE */
+.profile img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+/* SECTION */
+section {
+  margin-top: 20px;
+}
+
+/* PROJECT IMAGE */
+.project-images {
+  display: flex;
+  gap: 10px;
+}
+
+.project-images img {
+  width: 200px;
+}
+
+/* FORM */
+input,
+textarea {
+  width: 200px;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 5px 10px;
+}

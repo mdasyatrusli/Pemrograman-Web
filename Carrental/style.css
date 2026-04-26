@@ -1,0 +1,179 @@
+/* RESET */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* HERO / SEARCH */
+#search {
+  height: 80vh;
+  background: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  color: white;
+}
+
+.title h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.title p {
+  font-size: 1.2em;
+}
+
+.title hr {
+  width: 50%;
+  border: 1px solid white;
+  opacity: 0.5;
+}
+
+/* FORM */
+.form-container {
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* BUTTON */
+button {
+  background: orange;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* SECTION */
+.car-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* GRID */
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* CARD */
+.car-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.car-card:hover {
+  transform: translateY(-8px);
+}
+
+/* GAMBAR */
+.car-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* TEXT */
+.car-card h3 {
+  margin: 10px 0;
+}
+
+.car-card p {
+  margin: 5px 0;
+  color: gray;
+}
+
+/* HARGA */
+.car-card span {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* HIGHLIGHT CARD */
+.highlight {
+  background: orange;
+  color: white;
+}
+
+.highlight p {
+  color: white;
+}
+
+.highlight button {
+  background: black;
+}
+
+/* FOOTER */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+/* FOOTER */
+.footer {
+  background: #222;
+  color: white;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.footer-box h2,
+.footer-box h3 {
+  margin-bottom: 10px;
+}
+
+.footer-box p {
+  margin: 5px 0;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}

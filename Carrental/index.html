@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Rental</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HERO / SEARCH -->
+    <section id="search">
+      <div class="title">
+        <h1>Car Rental</h1>
+        <p>Find the perfect car for your next adventure</p>
+        <hr />
+      </div>
+
+      <!-- FORM (diperbaiki) -->
+      <form class="form-container">
+        <div class="form-group">
+          <label for="pickup">Rental Location:</label>
+          <select id="pickup" name="pickup" required>
+            <option value="">Select Location</option>
+            <option>Sleman</option>
+            <option>Bantul</option>
+            <option>Yogyakarta</option>
+            <option>Gunung Kidul</option>
+            <option>Kulon Progo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pickup-date">Rental Start Date:</label>
+          <input type="date" id="pickup-date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="return-date">Rental End Date:</label>
+          <input type="date" id="return-date" required />
+        </div>
+
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <!-- CAR LIST -->
+    <section class="car-section">
+      <h2>Choose The Car You Need</h2>
+
+      <div class="car-list">
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1634867399329-e0032a52f3d4?w=500" alt="Honda Civic" />
+          <h3>Honda Civic Turbo</h3>
+          <p>⭐ 5.0</p>
+          <p>4 Seats • AC • Automatic</p>
+          <span>$69 / Day</span>
+          <button>Book Now</button>
+        </div>
+
+        <div class="car-card highlight">
+          <img src="https://images.unsplash.com/photo-1591738802175-709fedef8288?q=80" alt="Jeep" />
+          <h3>Jeep Wrangler</h3>
+          <p>⭐ 5.0</p>
+          <p>4 Seats • AC • Manual</p>
+          <span>$80 / Day</span>
+          <button>Book Now</button>
+        </div>
+
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1597007030739-6d2e7172ee5b?q=80" alt="Audi" />
+          <h3>Audi A4</h3>
+          <p>⭐ 5.0</p>
+          <p>4 Seats • AC • Automatic</p>
+          <span>$99 / Day</span>
+          <button>Book Now</button>
+        </div>
+
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1594978100646-ccd2ae32b711?q=80" alt="Xpander" />
+          <h3>XPander</h3>
+          <p>⭐ 5.0</p>
+          <p>6 Seats • AC • Manual</p>
+          <span>$115 / Day</span>
+          <button>Book Now</button>
+        </div>
+
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500" alt="Toyota Corolla" />
+          <h3>Toyota Corolla</h3>
+          <p>⭐ 4.8</p>
+          <p>2 Seats • AC • Manual</p>
+          <span>$109 / Day</span>
+          <button>Book Now</button>
+        </div>
+
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1591316638441-bc659685017d?q=80" alt="Mini Cooper" />
+          <h3>Mini Cooper</h3>
+          <p>⭐ 5.0</p>
+          <p>4 Seats • AC • Automatic</p>
+          <span>$99 / Day</span>
+          <button>Book Now</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- BRAND -->
+        <div class="footer-box">
+          <h2>Car Rental</h2>
+          <p>Solusi rental mobil terbaik untuk perjalanan Anda.</p>
+        </div>
+
+        <!-- KONTAK -->
+        <div class="footer-box">
+          <h3>Contact</h3>
+          <p>📞 +62 812-3456-7890</p>
+          <p>📧 carrental@gmail.com</p>
+          <p>📍 Yogyakarta, Indonesia</p>
+        </div>
+
+        <!-- SOSIAL MEDIA -->
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <p>📘 Facebook: CarRental</p>
+          <p>📸 Instagram: @carrental.id</p>
+          <p>🐦 Twitter: @carrental</p>
+        </div>
+
+        <!-- LAYANAN -->
+        <div class="footer-box">
+          <h3>Services</h3>
+          <p>Car Rental</p>
+          <p>Airport Transfer</p>
+          <p>24/7 Support</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Car Rental | All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>

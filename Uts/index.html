@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KŌTER — Specialty Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Ditambahkan ke keranjang</div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <div class="cart-title">Keranjang</div>
+        <button class="cart-close" onclick="toggleCart()">×</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+          <div style="font-size: 32px; margin-bottom: 12px">☕</div>
+          Keranjang masih kosong
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <span class="cart-total-amount" id="cartTotal">Rp 0</span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">Lanjut ke Pembayaran</button>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">KŌ<span>TER</span></div>
+      <div class="nav-links">
+        <a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a>
+        <a href="#" onclick="showPage('products')" id="nav-products">Produk</a>
+        <a href="#" onclick="showPage('about')" id="nav-about">Tentang Kami</a>
+        <a href="#" onclick="showPage('contact')" id="nav-contact">Kontak</a>
+      </div>
+      <div class="cart-icon" onclick="toggleCart()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 01-8 0" />
+        </svg>
+        <span id="cartCount">0</span>
+      </div>
+    </nav>
+
+    <!-- ===== HOME PAGE ===== -->
+    <div id="home" class="page active">
+      <section class="hero">
+        <div class="hero-left">
+          <p class="hero-eyebrow">Specialty Coffee · Ternate, Maluku Utara</p>
+          <h1 class="hero-title">Kopi<br />yang <em>Benar</em><br />Bercerita</h1>
+          <p class="hero-desc">Kopi asli Maluku Utara dengan perpaduan jahe dan kayu manis — cita rasa yang pekat, aroma yang khas, dan identitas yang harus dijaga.</p>
+          <div class="hero-cta">
+            <a href="#" onclick="showPage('products')" class="btn-primary">Jelajahi Koleksi</a>
+            <a href="#" onclick="showPage('about')" class="btn-secondary">Tentang Kami</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-bg-text">KŌHTER</div>
+          <img src="koter.png" alt="Kopi KŌHII" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 0.85" />
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">12+</span>
+              <span class="stat-label">Origins</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">500+</span>
+              <span class="stat-label">Pelanggan</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">7</span>
+              <span class="stat-label">Tahun</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Marquee -->
+      <div class="marquee-section">
+        <div class="marquee-track" id="marqueeTrack">
+          <span class="marquee-item">SPECIALTY COFFEE</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">SINGLE ORIGIN</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">DIRECT TRADE</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">ARTISAN ROAST</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">NUSANTARA BLEND</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">SPECIALTY COFFEE</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">SINGLE ORIGIN</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">DIRECT TRADE</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">ARTISAN ROAST</span>
+          <span class="marquee-item marquee-dot">✦</span>
+          <span class="marquee-item">NUSANTARA BLEND</span>
+          <span class="marquee-item marquee-dot">✦</span>
+        </div>
+      </div>
+
+      <!-- Featured Products -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Koleksi<br />Unggulan</h2>
+
+          <a href="#" onclick="showPage('products')" class="section-link"> Lihat Semua → </a>
+        </div>
+
+        <div class="featured-grid">
+          <!-- PRODUK 1 -->
+          <div class="product-card">
+            <div class="product-img-wrap featured-img">
+              <img src="toraja.jpg" alt="Toraja Sapan" />
+
+              <div class="product-badge">Best Seller</div>
+
+              <button class="add-to-cart" onclick="addToCart('Toraja Sapan', 145000, '☕')">+ Tambah ke Keranjang</button>
+            </div>
+
+            <div class="product-info">
+              <div class="product-origin">Sulawesi</div>
+              <div class="product-name">Toraja Sapan</div>
+              <div class="product-price">200g — <strong>Rp 145.000</strong></div>
+            </div>
+          </div>
+
+          <!-- PRODUK 2 -->
+          <div class="product-card">
+            <div class="product-img-wrap featured-img">
+              <img src="gayon.jpg" alt="Gayo Natural" />
+
+              <button class="add-to-cart" onclick="addToCart('Gayo Natural', 125000, '☕')">+ Tambah</button>
+            </div>
+
+            <div class="product-info">
+              <div class="product-origin">Aceh</div>
+              <div class="product-name">Gayo Natural</div>
+              <div class="product-price">200g — <strong>Rp 125.000</strong></div>
+            </div>
+          </div>
+
+          <!-- PRODUK 3 -->
+          <div class="product-card">
+            <div class="product-img-wrap featured-img">
+              <img src="flores.jpg" alt="Flores Bajawa" />
+
+              <div class="product-badge" style="background: var(--accent); color: var(--black)">New</div>
+
+              <button class="add-to-cart" onclick="addToCart('Flores Bajawa', 155000, '☕')">+ Tambah</button>
+            </div>
+
+            <div class="product-info">
+              <div class="product-origin">NTT</div>
+              <div class="product-name">Flores Bajawa</div>
+              <div class="product-price">200g — <strong>Rp 155.000</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Philosophy -->
+      <div class="philosophy">
+        <div class="philosophy-left">
+          <p class="philosophy-eyebrow">Filosofi Kami</p>
+          <h2 class="philosophy-title">Dari Petani ke<br /><em>Cangkirmu</em></h2>
+          <p class="philosophy-text">
+            Kami percaya bahwa secangkir kopi yang baik dimulai jauh sebelum proses roasting. Hubungan langsung dengan petani, metode pemrosesan yang tepat, dan rasa hormat terhadap terroir — itulah
+            yang membedakan KŌTER.
+          </p>
+          <a href="#" onclick="showPage('contact')" class="btn-primary" style="display: inline-block">Pelajari Lebih Lanjut</a>
+        </div>
+        <div class="philosophy-right">
+          <div class="phil-item">
+            <div class="phil-num">01</div>
+            <div class="phil-title">Direct Trade</div>
+            <div class="phil-desc">Kami bekerja langsung bersama petani kopi pilihan di seluruh nusantara.</div>
+          </div>
+          <div class="phil-item">
+            <div class="phil-num">02</div>
+            <div class="phil-title">Artisan Roast</div>
+            <div class="phil-desc">Setiap batch diproses kecil dengan kontrol penuh atas profil rasa.</div>
+          </div>
+          <div class="phil-item">
+            <div class="phil-num">03</div>
+            <div class="phil-title">Fresh Roasted</div>
+            <div class="phil-desc">Pesanan Anda dipanggang setelah order, tidak lebih dari 3 hari.</div>
+          </div>
+          <div class="phil-item">
+            <div class="phil-num">04</div>
+            <div class="phil-title">Sustainability</div>
+            <div class="phil-desc">Kemasan daur ulang dan praktik bisnis yang ramah lingkungan.</div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-top">
+          <div>
+            <div class="footer-logo">KŌ<span>TER</span></div>
+            <p class="footer-tagline">Specialty coffee dari hati Maluku Utara, langsung ke cangkir Anda. Menjaga warisan, satu cangkir tiap hari.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi</div>
+            <div class="footer-links">
+              <a href="#" onclick="showPage('home')">Home</a>
+              <a href="#" onclick="showPage('products')">Produk</a>
+              <a href="#" onclick="showPage('contact')">Kontak</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Hubungi</div>
+            <div class="footer-links">
+              <a href="#">hello@koter.id</a>
+              <a href="#">+62 812-3456-7890</a>
+              <a href="#">Ternate, Maluku Utara</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2024 KŌTER — ALL RIGHTS RESERVED</span>
+          <span class="footer-copy">CRAFTED WITH ♥ IN TERNATE</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ===== PRODUCTS PAGE ===== -->
+    <div id="products" class="page">
+      <div class="products-hero">
+        <p class="products-hero-eyebrow">Koleksi Kami</p>
+        <h1 class="products-hero-title">Semua Kopi</h1>
+        <p class="products-hero-sub">12 Single Origin · 3 Blends · Freshly Roasted</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProducts('all', this)">Semua</button>
+        <button class="filter-btn" onclick="filterProducts('sumatera', this)">Sumatera</button>
+        <button class="filter-btn" onclick="filterProducts('jawa', this)">Jawa</button>
+        <button class="filter-btn" onclick="filterProducts('sulawesi', this)">Sulawesi</button>
+        <button class="filter-btn" onclick="filterProducts('flores', this)">Flores & NTT</button>
+        <button class="filter-btn" onclick="filterProducts('blend', this)">House Blend</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+
+      <footer>
+        <div class="footer-top">
+          <div>
+            <div class="footer-logo">KŌ<span>TER</span></div>
+            <p class="footer-tagline">Specialty coffee khas Maluku Utara — pekat, aromatik, dan penuh identitas.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi</div>
+            <div class="footer-links">
+              <a href="#" onclick="showPage('home')">Home</a>
+              <a href="#" onclick="showPage('products')">Produk</a>
+              <a href="#" onclick="showPage('contact')">Kontak</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Hubungi</div>
+            <div class="footer-links">
+              <a href="#">hello@koter.id</a>
+              <a href="#">+62 813-8279-5630</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2024 KŌTER — ALL RIGHTS RESERVED</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <div id="about" class="page">
+      <!-- Hero -->
+      <div class="about-hero">
+        <div class="about-hero-left">
+          <p class="about-hero-eyebrow">Tentang KŌTER</p>
+          <h1 class="about-hero-title">Menjaga<br /><em>Warisan</em><br />Kopi Maluku</h1>
+          <p class="about-hero-sub">Lahir dari cinta terhadap kopi asli Maluku Utara, KŌTER hadir untuk melestarikan cita rasa yang kaya dan memperkenalkannya kepada dunia.</p>
+        </div>
+        <div class="about-hero-right">
+          <div class="about-hero-bg-text">TERNATE</div>
+          <div class="about-location-card">
+            <span class="about-location-icon">🌋</span>
+            <div class="about-location-city">Ternate</div>
+            <div class="about-location-region">Maluku Utara · Indonesia</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story -->
+      <div class="about-story">
+        <div class="about-story-left">
+          <p class="about-story-eyebrow">Kisah Kami</p>
+          <h2 class="about-story-title">Dari Ternate,<br />untuk <em>Nusantara</em></h2>
+          <div class="about-story-text">
+            <p>
+              KŌTER didirikan di jantung kota Ternate, Maluku Utara — sebuah kota bersejarah yang kaya akan rempah dan budaya. Kami percaya bahwa biji kopi asli Maluku Utara menyimpan karakter yang
+              luar biasa: warna yang pekat, rasa yang dalam, dan aroma yang tak tertandingi.
+            </p>
+            <p>
+              Lebih dari sekadar bisnis kopi, KŌTER adalah sebuah gerakan pelestarian. Kami hadir untuk memastikan bahwa kopi Maluku Utara tidak hanya dikenal di tanah sendiri, tetapi diwariskan
+              kepada generasi yang akan datang sebagai identitas dan kebanggaan daerah.
+            </p>
+            <p>
+              Yang membuat kopi kami istimewa adalah perpaduan sempurna antara biji kopi lokal dengan rempah-rempah pilihan — jahe dan kayu manis — menciptakan cita rasa dan aroma yang khas, hangat,
+              dan tak terlupakan. Inilah warna baru yang kami tawarkan kepada dunia kopi Indonesia.
+            </p>
+          </div>
+        </div>
+        <div class="about-story-right">
+          <div class="about-quote-block">
+            <span class="about-quote-mark">"</span>
+            <p class="about-quote-text">Kopi Maluku Utara harus dijaga dan diwariskan pada generasi selanjutnya sehingga menjadi identitas kita.</p>
+            <div class="about-quote-author">Achat Rusli · Pendiri KŌTER</div>
+          </div>
+          <div class="about-quote-block">
+            <span class="about-quote-mark">"</span>
+            <p class="about-quote-text">Kami hadir untuk memberikan warna baru sekaligus menjaga budaya kopi asli Maluku Utara.</p>
+            <div class="about-quote-author">Tim KŌTER · Ternate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Founder -->
+      <div class="about-founder">
+        <div class="founder-avatar">
+          <div class="founder-avatar-circle">
+            <span class="founder-initials">AR & KK</span>
+          </div>
+          <div class="founder-name">Achat Rusli & Partner</div>
+          <div class="founder-role">Penggagas &amp; Founder</div>
+        </div>
+        <div class="founder-right">
+          <p class="founder-eyebrow">Sang Penggagas</p>
+          <h2 class="founder-title">Satu Visi,<br />Bersama <em>Partner</em></h2>
+          <div class="founder-text">
+            <p>
+              Saya Achat Rusli & Partner adalah penggagas di balik KŌTER — sebuah usaha bersama yang lahir dari semangat kolektif bersama para partner dan teman-teman yang memiliki mimpi yang sama:
+              mengangkat kopi Maluku Utara ke panggung yang lebih luas.
+            </p>
+            <p>
+              Bersama timnya, Achat membangun KŌTER bukan hanya sebagai toko kopi, tetapi sebagai ruang di mana tradisi bertemu inovasi. Setiap cangkir yang disajikan adalah cerminan dari dedikasi
+              mereka terhadap kualitas, keaslian, dan warisan budaya lokal.
+            </p>
+            <p>KŌTER adalah bukti bahwa usaha yang dibangun dengan hati dan dilakukan bersama-sama mampu membawa perubahan nyata bagi komunitas dan budaya daerah.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="about-values">
+        <div class="about-values-header">
+          <p class="about-values-eyebrow">Nilai Kami</p>
+          <h2 class="about-values-title">Apa yang Kami <em>Perjuangkan</em></h2>
+        </div>
+        <div class="about-values-grid">
+          <div class="about-value-item">
+            <div class="about-value-num">01</div>
+            <div class="about-value-icon">🌿</div>
+            <div class="about-value-title">Pelestarian Budaya</div>
+            <div class="about-value-desc">Menjaga dan mewariskan kopi asli Maluku Utara sebagai identitas dan kebanggaan daerah kepada generasi penerus.</div>
+          </div>
+          <div class="about-value-item">
+            <div class="about-value-num">02</div>
+            <div class="about-value-icon">🫚</div>
+            <div class="about-value-title">Cita Rasa Autentik</div>
+            <div class="about-value-desc">Perpaduan unik biji kopi lokal dengan jahe dan kayu manis menghasilkan aroma dan rasa yang khas, pekat, dan hangat.</div>
+          </div>
+          <div class="about-value-item">
+            <div class="about-value-num">03</div>
+            <div class="about-value-icon">🤝</div>
+            <div class="about-value-title">Semangat Bersama</div>
+            <div class="about-value-desc">Dibangun bersama para partner dengan tujuan yang sama — memberikan warna baru dalam dunia kopi Indonesia.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Address Strip -->
+      <div class="about-address-strip">
+        <div>
+          <div class="about-address-label">Temukan Kami Di</div>
+          <div class="about-address-text">Jl. Raya Mangga Dua No.50, Kec. Ternate Selatan, Kota Ternate, Maluku Utara</div>
+        </div>
+        <a href="#" onclick="showPage('contact')" class="about-address-btn">Hubungi Kami →</a>
+      </div>
+
+      <footer>
+        <div class="footer-top">
+          <div>
+            <div class="footer-logo">KŌ<span>TER</span></div>
+            <p class="footer-tagline">Specialty coffee dari hati petani Maluku Utara, langsung ke cangkir Anda. Setiap tegukan adalah identitas.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi</div>
+            <div class="footer-links">
+              <a href="#" onclick="showPage('home')">Home</a>
+              <a href="#" onclick="showPage('products')">Produk</a>
+              <a href="#" onclick="showPage('about')">Tentang Kami</a>
+              <a href="#" onclick="showPage('contact')">Kontak</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Hubungi</div>
+            <div class="footer-links">
+              <a href="#">hello@koter.id</a>
+              <a href="#">+62 812-3456-7890</a>
+              <a href="#">Ternate, Maluku Utara</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2024 KŌTER — ALL RIGHTS RESERVED</span>
+          <span class="footer-copy">CRAFTED WITH ♥ IN TERNATE</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ===== CONTACT PAGE ===== -->
+    <div id="contact" class="page">
+      <div class="contact-hero">
+        <p class="contact-hero-eyebrow">Kami Ada Untukmu</p>
+        <h1 class="contact-hero-title">Hubungi Kami</h1>
+      </div>
+
+      <div class="contact-body">
+        <div class="contact-form-side">
+          <div id="contactForm">
+            <h2 class="form-title">Kirim Pesan</h2>
+            <div class="form-group">
+              <label class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-input" placeholder="Nama kamu..." id="formName" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="email@domain.com" id="formEmail" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Topik</label>
+              <select class="form-select form-input" id="formTopic">
+                <option value="">Pilih topik...</option>
+                <option>Pemesanan / Order</option>
+                <option>Wholesale / Reseller</option>
+                <option>Kunjungan Roastery</option>
+                <option>Kerjasama Petani</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pesan</label>
+              <textarea class="form-textarea" placeholder="Tulis pesanmu di sini..." id="formMessage"></textarea>
+            </div>
+            <button class="form-submit" onclick="submitForm()">Kirim Pesan →</button>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">☕</div>
+            <div class="form-success-title">Pesan Terkirim!</div>
+            <p class="form-success-sub">Terima kasih sudah menghubungi kami.<br />Kami akan membalas dalam 1×24 jam.</p>
+            <br />
+            <button class="btn-primary" onclick="resetForm()" style="margin-top: 16px">Kirim Pesan Lain</button>
+          </div>
+        </div>
+
+        <div class="contact-info-side">
+          <h2 class="contact-info-title">Informasi</h2>
+
+          <div class="info-block">
+            <div class="info-label">Alamat Roastery</div>
+            <div class="info-value">Jl. Raya Mangga Dua No.50<br />Kec. Ternate Selatan, Kota Ternate<br />Maluku Utara</div>
+            <div class="info-sub">Kunjungan roastery tersedia setiap hari Sabtu-Minggu. Hubungi kami terlebih dahulu untuk reservasi.</div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-label">Jam Operasional</div>
+            <div class="hours-grid">
+              <div class="hour-item"><strong>Senin – Jumat</strong>08.00 – 17.00 WIB</div>
+              <div class="hour-item"><strong>Sabtu – Minggu</strong>09.00 – 15.00 WIB</div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-label">Kontak Langsung</div>
+            <div class="info-value">hello@koter.id</div>
+            <div class="info-sub">+62 813-8279-5630 (WhatsApp)</div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-label">Media Sosial</div>
+            <div class="social-links">
+              <a class="social-link" href="#">Instagram</a>
+              <a class="social-link" href="#">TikTok</a>
+              <a class="social-link" href="#">Shopee</a>
+              <a class="social-link" href="#">Tokopedia</a>
+            </div>
+          </div>
+
+          <div class="map-placeholder">
+            <div class="map-pin">📍</div>
+            <span> Jl. Raya Mangga Dua No.50 </span>
+            <span style="font-size: 9px; opacity: 0.6; letter-spacing: 1px">KŌTER ROASTERY</span>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-top">
+          <div>
+            <div class="footer-logo">KŌ<span>TER</span></div>
+            <p class="footer-tagline">Specialty coffee khas Maluku Utara — pekat, aromatik, dan penuh identitas.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi</div>
+            <div class="footer-links">
+              <a href="#" onclick="showPage('home')">Home</a>
+              <a href="#" onclick="showPage('products')">Produk</a>
+              <a href="#" onclick="showPage('contact')">Kontak</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Hubungi</div>
+            <div class="footer-links">
+              <a href="#">hello@koter.id</a>
+              <a href="#">+62 813-8279-5630</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2026 KŌTER — ALL RIGHTS RESERVED</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
